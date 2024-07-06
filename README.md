@@ -1,5 +1,5 @@
 # santander-bootcamp-2024
-Java restful API desenvovida no Santander Bootcamp 2024
+Java Restful API desenvovida no Santander Bootcamp 2024
 
 ## Diagrama de Classes
 
