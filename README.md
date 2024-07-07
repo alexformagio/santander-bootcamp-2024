@@ -32,3 +32,11 @@ classDiagram
     User --> Card : has
     User --> News : has many
 ```
+
+
+#Rodar com profile de produção
+java -jar -Dspring.profiles.active=prod target\bootcamp-2024-0.0.1-SNAPSHOT.jar
+#Rodar com profile de Desenvolvimento
+java -jar -Dspring.profiles.active=dev target\bootcamp-2024-0.0.1-SNAPSHOT.jar
+
+https://pt.stackoverflow.com/questions/287187/usar-profiling-do-maven-ou-do-spring-boot

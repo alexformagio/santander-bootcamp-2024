@@ -1,0 +1,1 @@
+web: java -jar -Dspring.profiles.active=prod target\bootcamp-2024-0.0.1-SNAPSHOT.jar
