@@ -61,6 +61,111 @@ classDiagram
 1 - Na primeira etapa acompanhei o tutorial do curso e repliquei aquilo que foi desenvolvido no curso como mostra a imagem abaixo:
 ![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa1.jpg)
 
+2 - Na segunda parte desenvolvi a parte de iteração com as contas adicionando funcionalidades para consulras as contas, fazer operações de débito, crédito e transferência, 
+    como mostra a imagem abaixo:
+![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa2.jpg)
+	
+3 - Na Terceira e ultima parte desnvolvi um endpoint para consultar uma conta e o histórico dos seus lançamentos como mostra a imagem abaixo:
+![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa3.jpg)
+
+# Validando o projeto
+1 - Para validar a solução cadastrei dois usuarios através do método POST em "/users"
+2 - Depois fiz lançamentos de Débito, Crédito etransferência para cada um dos dois usuários através do método POST nos seguintes endpoints:
+  A) /accounts/credit
+  B) /accounts/debit
+  C) /accounts/transfer 
+  
+3- Por fim podemos ver o resultado final com o histórico dos lançamentos executando o método GET no endpoint /history/{number}/{dataini}  
+   A) Consulta na conta do primeiro Usuario:
+   ```javascript
+   {
+  "account": {
+    "id": 1,
+    "number": "1",
+    "agency": "1",
+    "balance": 4446,
+    "limit": 0
+  },
+  "history": [
+    {
+      "id": 1,
+      "accountNumber": "1",
+      "data": "2024-07-09",
+      "previousBalance": 0,
+      "value": 5000,
+      "currentBalance": 5000,
+      "description": "Credit of slary",
+      "type": "CREDIT"
+    },
+    {
+      "id": 3,
+      "accountNumber": "1",
+      "data": "2024-07-09",
+      "previousBalance": 5000,
+      "value": 254,
+      "currentBalance": 4746,
+      "description": "Gasoline ",
+      "type": "DEBIT"
+    },
+    {
+      "id": 5,
+      "accountNumber": "1",
+      "data": "2024-07-09",
+      "previousBalance": 4746,
+      "value": 300,
+      "currentBalance": 4446,
+      "description": "Transfer to account: 2",
+      "type": "DEBIT"
+    }
+  ]
+}
+   ```
+   
+   B) Consulta na conta do segundo Usuario:
+   ```javascript
+   {
+  "account": {
+    "id": 2,
+    "number": "2",
+    "agency": "1",
+    "balance": 3102,
+    "limit": 0
+  },
+  "history": [
+    {
+      "id": 2,
+      "accountNumber": "2",
+      "data": "2024-07-09",
+      "previousBalance": 0,
+      "value": 3000,
+      "currentBalance": 3000,
+      "description": "Credit of slary",
+      "type": "CREDIT"
+    },
+    {
+      "id": 4,
+      "accountNumber": "2",
+      "data": "2024-07-09",
+      "previousBalance": 3000,
+      "value": 198,
+      "currentBalance": 2802,
+      "description": "Clothes",
+      "type": "DEBIT"
+    },
+    {
+      "id": 6,
+      "accountNumber": "2",
+      "data": "2024-07-09",
+      "previousBalance": 2802,
+      "value": 300,
+      "currentBalance": 3102,
+      "description": "Transfer from account: 1",
+      "type": "CREDIT"
+    }
+  ]
+}
+   ```
+   
 
 ## Observações
 ### Rodar com profile de produção
