@@ -59,13 +59,13 @@ classDiagram
 # Sobre o projeto 
 
 1 - Na primeira etapa acompanhei o tutorial do curso e repliquei aquilo que foi desenvolvido no curso como mostra a imagem abaixo:
-![](https://github.com/alexformagio/santander-bootcamp-2024/tree/main/images/etapa1.jpg)
+![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa1.jpg)
 
 
 ## Observações
-# Rodar com profile de produção
+### Rodar com profile de produção
 java -jar -Dspring.profiles.active=prod target\bootcamp-2024-0.0.1-SNAPSHOT.jar
 
-# Rodar com profile de Desenvolvimento
+### Rodar com profile de Desenvolvimento
 java -jar -Dspring.profiles.active=dev target\bootcamp-2024-0.0.1-SNAPSHOT.jar
 
