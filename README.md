@@ -61,7 +61,7 @@ classDiagram
 1 - Na primeira etapa acompanhei o tutorial do curso e repliquei aquilo que foi desenvolvido no curso como mostra a imagem abaixo:
 ![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa1.jpg)
 
-2 - Na segunda parte desenvolvi a parte de iteração com as contas adicionando funcionalidades para consulras as contas, fazer operações de débito, crédito e transferência, 
+2 - Na segunda parte desenvolvi a parte de iteração com as contas adicionando funcionalidades para consultar as contas, fazer operações de débito, crédito e transferência, 
     como mostra a imagem abaixo:
 ![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa2.jpg)
 	
@@ -69,13 +69,20 @@ classDiagram
 ![](https://github.com/alexformagio/santander-bootcamp-2024/blob/main/images/etapa3.jpg)
 
 # Validando o projeto
-1 - Para validar a solução cadastrei dois usuarios através do método POST em "/users"
-2 - Depois fiz lançamentos de Débito, Crédito etransferência para cada um dos dois usuários através do método POST nos seguintes endpoints:
+1 - Para validar a solução cadastrei dois usuarios através do método POST em "/users".
+
+
+2 - Depois fiz lançamentos de Débito, Crédito e transferência para cada um dos dois usuários através do método POST nos seguintes endpoints:
+
   A) /accounts/credit
+  
   B) /accounts/debit
+  
   C) /accounts/transfer 
+
   
 3- Por fim podemos ver o resultado final com o histórico dos lançamentos executando o método GET no endpoint /history/{number}/{dataini}  
+
    A) Consulta na conta do primeiro Usuario:
    ```javascript
    {
@@ -122,6 +129,7 @@ classDiagram
    ```
    
    B) Consulta na conta do segundo Usuario:
+   
    ```javascript
    {
   "account": {
