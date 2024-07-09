@@ -9,26 +9,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import formagio.santander.service.exception.BusinessException;
+import formagio.santander.service.exception.NotFoundException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-	
-	private final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-	
-	@ExceptionHandler(IllegalArgumentException.class)
-	public ResponseEntity<String> handle(IllegalArgumentException ex){
-		return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
-	}
 
-	@ExceptionHandler(NoSuchElementException.class)
-	public ResponseEntity<String> handle(NoSuchElementException ex){
-		return new ResponseEntity<>("Recurso não localizado", HttpStatus.NOT_FOUND);
-	}
-	
+    private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-	@ExceptionHandler(Throwable.class)
-	public ResponseEntity<String> handle(Throwable ex){
-		var message = "Erro inesperado no servidor";
-		logger.error(message, ex);
-		return new ResponseEntity<>("Erro inesperado ", HttpStatus.INTERNAL_SERVER_ERROR);
-	}
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<String> handleBusinessException(BusinessException ex) {
+        return new ResponseEntity<>(ex.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<String> handleNoContentException() {
+        return new ResponseEntity<>("Resource ID not found.", HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(Throwable.class)
+    public ResponseEntity<String> handleUnexpectedException(Throwable unexpectedException) {
+        String message = "Unexpected server error.";
+        LOGGER.error(message, unexpectedException);
+        return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
